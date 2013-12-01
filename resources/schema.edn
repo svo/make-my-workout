@@ -1,0 +1,9 @@
+[
+	{:db/id #db/id[:db.part/db]
+	:db/ident :make_my_workout/description
+	:db/valueType :db.type/string
+	:db/cardinality :db.cardinality/one
+	:db/fulltext true
+	:db/doc "Workout"
+	:db.install/_attribute :db.part/db}
+]

@@ -1,0 +1,6 @@
+[
+	{:db/id #db/id[:db.part/user -1], :make_my_workout/description "Arms and Shoulders"}
+	{:db/id #db/id[:db.part/user -2], :make_my_workout/description "Back and Chest"}
+	{:db/id #db/id[:db.part/user -3], :make_my_workout/description "Legs and Abs"}
+	{:db/id #db/id[:db.part/user -4], :make_my_workout/description "Cardio"}
+]
