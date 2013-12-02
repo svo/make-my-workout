@@ -1,9 +1,41 @@
 [
 	{:db/id #db/id[:db.part/db]
-	:db/ident :workout/label
-	:db/valueType :db.type/string
-	:db/cardinality :db.cardinality/one
-	:db/fulltext true
-	:db/doc "Workout"
-	:db.install/_attribute :db.part/db}
+		:db/ident :workout/label
+		:db/valueType :db.type/string
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "Workout"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :workout/muscle_group
+  		:db/valueType :db.type/ref
+		:db/cardinality :db.cardinality/many
+		:db/fulltext true
+		:db/doc "Workout Muscle Group"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :muscle_group/label
+		:db/valueType :db.type/string
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "Muscle Group"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :exercise/label
+		:db/valueType :db.type/string
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "Exercise"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :exercise/muscle_group
+  		:db/valueType :db.type/ref
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "Exercise Muscle Group"
+		:db.install/_attribute :db.part/db}
 ]
