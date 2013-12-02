@@ -15,4 +15,4 @@
 (defn results []
 	(init-db)
 	(let [conn (d/connect uri)]
-		(q '[:find ?c :where [?e :make_my_workout/description ?c]] (d/db conn))))
+		(q '[:find ?c :where [?e :workout/label ?c]] (d/db conn))))
