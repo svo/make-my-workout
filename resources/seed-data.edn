@@ -1,8 +1,4 @@
 [
-	{:db/id #db/id[:db.part/user -1], :workout/label "Biceps, Triceps and Shoulders"}
-	{:db/id #db/id[:db.part/user -2], :workout/label "Back and Chest"}
-	{:db/id #db/id[:db.part/user -3], :workout/label "Legs and Abs"}
-	{:db/id #db/id[:db.part/user -4], :workout/label "Cardio"}
 
 	{:db/id #db/id[:db.part/user -1], :muscle_group/label "Biceps"}
 	{:db/id #db/id[:db.part/user -2], :muscle_group/label "Triceps"}
@@ -11,15 +7,30 @@
 	{:db/id #db/id[:db.part/user -5], :muscle_group/label "Chest"}
 	{:db/id #db/id[:db.part/user -6], :muscle_group/label "Legs"}
 	{:db/id #db/id[:db.part/user -7], :muscle_group/label "Abs"}
-	{:db/id #db/id[:db.part/user -8], :muscle_group/label "Cardio"}
 
-	{:db/id #db/id[:db.part/user -1], :exercise/label "Concentration Curl"}
-	{:db/id #db/id[:db.part/user -2], :exercise/label "Skullcrusher"}
-	{:db/id #db/id[:db.part/user -3], :exercise/label "Barbell Shrug"}
-	{:db/id #db/id[:db.part/user -4], :exercise/label "Arnold Press"}
-	{:db/id #db/id[:db.part/user -5], :exercise/label "Pendlay Row"}
-	{:db/id #db/id[:db.part/user -6], :exercise/label "Barbell Bench Press"}
-	{:db/id #db/id[:db.part/user -7], :exercise/label "Barbell Squat"}
-	{:db/id #db/id[:db.part/user -8], :exercise/label "Crunch"}
-	{:db/id #db/id[:db.part/user -9], :exercise/label "Running"}
+	{:db/id #db/id[:db.part/user -8], :exercise/label "Concentration Curl"}
+	{:db/id #db/id[:db.part/user -9], :exercise/label "Skullcrusher"}
+	{:db/id #db/id[:db.part/user -10], :exercise/label "Barbell Shrug"}
+	{:db/id #db/id[:db.part/user -11], :exercise/label "Arnold Press"}
+	{:db/id #db/id[:db.part/user -12], :exercise/label "Pendlay Row"}
+	{:db/id #db/id[:db.part/user -13], :exercise/label "Barbell Bench Press"}
+	{:db/id #db/id[:db.part/user -14], :exercise/label "Barbell Squat"}
+	{:db/id #db/id[:db.part/user -15], :exercise/label "Crunch"}
+	{:db/id #db/id[:db.part/user -16], :exercise/label "Running"}
+
+	{:db/id #db/id[:db.part/user -17], :workout/label "Biceps, Triceps and Shoulders",
+		:workout/muscle_group [
+			#db/id[:db.part/user -1],
+			#db/id[:db.part/user -2],
+			#db/id[:db.part/user -3]]}
+
+	{:db/id #db/id[:db.part/user -18], :workout/label "Back and Chest",
+		:workout/muscle_group [
+			#db/id[:db.part/user -4],
+			#db/id[:db.part/user -5]]}
+
+	{:db/id #db/id[:db.part/user -19], :workout/label "Legs and Abs",
+		:workout/muscle_group [
+			#db/id[:db.part/user -6],
+			#db/id[:db.part/user -7]]}
 ]
