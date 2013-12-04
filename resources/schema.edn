@@ -38,4 +38,28 @@
 		:db/fulltext true
 		:db/doc "Exercise Muscle Group"
 		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :workout_exercise/workout
+		:db/valueType :db.type/ref
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "A completed Workout"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :workout_exercise/muscle_group
+		:db/valueType :db.type/ref
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "The Muscle Group for an Exercise within a completed Workout"
+		:db.install/_attribute :db.part/db}
+
+	{:db/id #db/id[:db.part/db]
+		:db/ident :workout_exercise/exercise
+		:db/valueType :db.type/ref
+		:db/cardinality :db.cardinality/one
+		:db/fulltext true
+		:db/doc "An Exercise within a completed Workout"
+		:db.install/_attribute :db.part/db}
 ]

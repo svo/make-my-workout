@@ -26,3 +26,15 @@
 	(init-db)
 	(let [conn (d/connect uri)]
 		(q '[:find ?c :where [?e :exercise/label ?c]] (d/db conn))))
+
+(defn workout_exercises []
+	(init-db)
+	(let [conn (d/connect uri)]
+		(q '[:find ?w_label ?m_label ?e_label
+				:where
+				[?c :workout_exercise/workout ?w]
+				[?w :workout/label ?w_label]
+				[?c :workout_exercise/muscle_group ?m]
+				[?m :muscle_group/label ?m_label]
+				[?c :workout_exercise/exercise ?e]
+				[?e :exercise/label ?e_label]] (d/db conn))))

@@ -10,7 +10,7 @@
 (deftest home-page-test
 	(is (=
 			(:body (response-for service :get "/"))
-			"Make My Workout!"))
+			"<html><body>Workout: [[\"Back and Chest\"], [\"Biceps, Triceps and Shoulders\"], [\"Legs and Abs\"]]<br /><br />Muscle Group: [[\"Chest\"], [\"Abs\"], [\"Legs\"], [\"Triceps\"], [\"Back\"], [\"Shoulders\"], [\"Biceps\"]]<br /><br />Exercise: [[\"Crunch\"], [\"Barbell Bench Press\"], [\"Running\"], [\"Pendlay Row\"], [\"Arnold Press\"], [\"Barbell Squat\"], [\"Concentration Curl\"], [\"Skullcrusher\"], [\"Barbell Shrug\"]]<br /><br /><br />Completed Workout: [[\"Biceps, Triceps and Shoulders\" \"Biceps\" \"Concentration Curl\"]]</body></html>"))
 	(is (=
 			(:headers (response-for service :get "/"))
 			{"Content-Type" "text/html;charset=UTF-8"})))

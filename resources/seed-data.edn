@@ -33,4 +33,9 @@
 		:workout/muscle_group [
 			#db/id[:db.part/user -6],
 			#db/id[:db.part/user -7]]}
+
+	{:db/id #db/id[:db.part/user -20],
+		:workout_exercise/workout #db/id[:db.part/user -17],
+		:workout_exercise/muscle_group #db/id[:db.part/user -1],
+		:workout_exercise/exercise #db/id[:db.part/user -8]}
 ]

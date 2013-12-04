@@ -4,7 +4,7 @@
 	          [io.pedestal.service.http.body-params :as body-params]
 	          [io.pedestal.service.http.route.definition :refer [defroutes]]
 	          [ring.util.response :as ring-resp]
-	          [make-my-workout.peer :as peer :refer [workouts muscle_groups exercises]]))
+	          [make-my-workout.peer :as peer :refer [workouts muscle_groups exercises workout_exercises]]))
 
 (defn about-page
 	[request]
@@ -16,10 +16,11 @@
 	[request]
 	;; (ring-resp/response "Make My Workout!"))
 	(ring-resp/response
-		(format "<html><body>Workout: %s<br /><br />Muscle Group: %s<br /><br />Exercise: %s</body></html>"
+		(format "<html><body>Workout: %s<br /><br />Muscle Group: %s<br /><br />Exercise: %s<br /><br /><br />Completed Workout: %s</body></html>"
 			(str (workouts))
 			(str (muscle_groups))
-			(str (exercises)))))
+			(str (exercises))
+			(str (workout_exercises)))))
 
 (defroutes routes
 	[[["/" {:get home-page}
