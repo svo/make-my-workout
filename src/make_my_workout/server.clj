@@ -21,12 +21,12 @@
 
 ;; Fns for use with io.pedestal.servlet.ClojureVarServlet
 
-(defn servlet-init [this config]
+(defn servlet-init "Initialise servlet" [this config]
 	(server/init service/service)
 	(server/servlet-init this config))
 
-(defn servlet-destroy [this]
+(defn servlet-destroy "Destroy servlet" [this]
 	(server/servlet-destroy this))
 
-(defn servlet-service [this servlet-req servlet-resp]
+(defn servlet-service "Servlet service" [this servlet-req servlet-resp]
 	(server/servlet-service this servlet-req servlet-resp))

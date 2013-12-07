@@ -1,22 +1,28 @@
 (ns make-my-workout.service
 	(:require [io.pedestal.service.http :as bootstrap]
-	          [io.pedestal.service.http.route :as route]
-	          [io.pedestal.service.http.body-params :as body-params]
-	          [io.pedestal.service.http.route.definition :refer [defroutes]]
-	          [ring.util.response :as ring-resp]
-	          [make-my-workout.peer :as peer :refer [workouts muscle_groups exercises workout_exercises]]))
+		[io.pedestal.service.http.route :as route]
+		[io.pedestal.service.http.body-params :as body-params]
+		[io.pedestal.service.http.route.definition :refer [defroutes]]
+		[ring.util.response :as ring-resp]
+		[make-my-workout.peer :as peer :refer [
+			workouts muscle_groups exercises workout_exercises]]))
 
 (defn about-page
+	"The About Page"
 	[request]
 	(ring-resp/response (format "Clojure %s - served from %s"
 		(clojure-version)
 		(route/url-for ::about-page))))
 
 (defn home-page
+	"The Home Page"
 	[request]
-	;; (ring-resp/response "Make My Workout!"))
 	(ring-resp/response
-		(format "<html><body>Workout: %s<br /><br />Muscle Group: %s<br /><br />Exercise: %s<br /><br /><br />Completed Workout: %s</body></html>"
+		(format
+			(str "<html><body>Workout: %s<br /><br />"
+				"Muscle Group: %s<br /><br />"
+				"Exercise: %s<br /><br /><br />"
+				"Completed Workout: %s</body></html>")
 			(str (workouts))
 			(str (muscle_groups))
 			(str (exercises))
@@ -30,7 +36,7 @@
 
 ;; Consumed by make-my-workout.server/create-server
 ;; See bootstrap/default-interceptors for additional options you can configure
-(def service {:env :prod
+(def service "Service" {:env :prod
 	;; You can bring your own non-default interceptors. Make
 	;; sure you include routing and set it up right for
 	;; dev-mode. If you do, many other keys for configuring
