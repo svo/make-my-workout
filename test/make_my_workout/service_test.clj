@@ -10,19 +10,23 @@
 (deftest home-page-test
 	(is (=
 		(:body (response-for service :get "/"))
-		(str "<html><body>"
-			"Workout: [[\"Back and Chest\"],"
-			" [\"Biceps, Triceps and Shoulders\"],"
-			" [\"Legs and Abs\"]]"
-			"<br /><br />Muscle Group: [[\"Chest\"], [\"Abs\"], [\"Legs\"],"
-			" [\"Triceps\"], [\"Back\"], [\"Shoulders\"], [\"Biceps\"]]"
-			"<br /><br />Exercise: [[\"Crunch\"], [\"Barbell Bench Press\"],"
-			" [\"Running\"], [\"Pendlay Row\"], [\"Arnold Press\"],"
-			" [\"Barbell Squat\"], [\"Concentration Curl\"],"
-			" [\"Skullcrusher\"], [\"Barbell Shrug\"]]"
-			"<br /><br /><br />Completed Workout:"
-			" [[\"Biceps, Triceps and Shoulders\" \"Biceps\""
-			" \"Concentration Curl\"]]</body></html>")))
+		(str "<html>\n<body>\n"
+			"Workout: [[&quot;Back and Chest&quot;],"
+			" [&quot;Biceps, Triceps and Shoulders&quot;],"
+			" [&quot;Legs and Abs&quot;]]"
+			"<br /><br />\nMuscle Group: [[&quot;Chest&quot;],"
+			" [&quot;Abs&quot;], [&quot;Legs&quot;], [&quot;Triceps&quot;],"
+			" [&quot;Back&quot;], [&quot;Shoulders&quot;],"
+			" [&quot;Biceps&quot;]]"
+			"<br /><br />\nExercise: [[&quot;Crunch&quot;],"
+			" [&quot;Barbell Bench Press&quot;],"
+			" [&quot;Running&quot;], [&quot;Pendlay Row&quot;],"
+			" [&quot;Arnold Press&quot;], [&quot;Barbell Squat&quot;],"
+			" [&quot;Concentration Curl&quot;], [&quot;Skullcrusher&quot;],"
+			" [&quot;Barbell Shrug&quot;]]"
+			"<br /><br /><br />\nCompleted Workout:"
+			" [[&quot;Biceps, Triceps and Shoulders&quot; &quot;Biceps&quot;"
+			" &quot;Concentration Curl&quot;]]\n</body>\n</html>")))
 	(is (=
 		(:headers (response-for service :get "/"))
 		{"Content-Type" "text/html;charset=UTF-8"})))

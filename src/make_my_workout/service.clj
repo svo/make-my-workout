@@ -4,6 +4,7 @@
 		[io.pedestal.service.http.body-params :as body-params]
 		[io.pedestal.service.http.route.definition :refer [defroutes]]
 		[ring.util.response :as ring-resp]
+		[selmer.parser :as selmer-parser]
 		[make-my-workout.peer :as peer :refer [
 			workouts muscle_groups exercises workout_exercises]]))
 
@@ -18,15 +19,12 @@
 	"The Home Page"
 	[request]
 	(ring-resp/response
-		(format
-			(str "<html><body>Workout: %s<br /><br />"
-				"Muscle Group: %s<br /><br />"
-				"Exercise: %s<br /><br /><br />"
-				"Completed Workout: %s</body></html>")
-			(str (workouts))
-			(str (muscle_groups))
-			(str (exercises))
-			(str (workout_exercises)))))
+		(selmer-parser/render-file "home.html" {
+			:workout (str (workouts))
+			:muscle_group (str (muscle_groups))
+			:exercise (str (exercises))
+			:workout_exercises (str (workout_exercises))
+		})))
 
 (defroutes routes
 	[[["/" {:get home-page}
