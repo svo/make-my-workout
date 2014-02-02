@@ -23,6 +23,7 @@
 	(let [conn (d/connect uri)]
 		(q '[:find ?c :where [?e :muscle_group/label ?c]] (d/db conn))))
 
+
 (defn exercises "List exercises" []
 	(init-db)
 	(let [conn (d/connect uri)]
@@ -39,3 +40,8 @@
 			[?m :muscle_group/label ?m_label]
 			[?c :workout_exercise/exercise ?e]
 			[?e :exercise/label ?e_label]] (d/db conn))))
+
+(defn entity_for_id "Entity for ID" [eid]
+  (init-db)
+  (let [conn (d/connect uri)]
+    (d/entity (d/db conn) eid)))

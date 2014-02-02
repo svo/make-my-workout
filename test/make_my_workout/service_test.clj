@@ -23,3 +23,8 @@
 	(is (=
 		(:headers (response-for service :get "/about"))
 		{"Content-Type" "text/html;charset=UTF-8"})))
+
+(deftest workout-exercise
+  (is (=
+       (:body (response-for service :get "/workout-exercise"))
+       (slurp "test-resources/workout_exercises.json"))))
