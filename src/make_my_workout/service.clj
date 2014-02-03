@@ -4,10 +4,9 @@
 		[io.pedestal.service.http.body-params :as body-params]
 		[io.pedestal.service.http.route.definition :refer [defroutes]]
 		[ring.util.response :as ring-resp]
-                [clojure.data.json :as json]
 		[selmer.parser :as selmer-parser]
-		[make-my-workout.peer :as peer :refer [
-			workouts muscle_groups exercises workout_exercises]]))
+                [make-my-workout.peer :as peer :refer [workout_exercises]]
+                [make-my-workout.workout-exercise :as workout-exercise]))
 
 (defn about-page
   "The About Page"
@@ -15,31 +14,22 @@
   (ring-resp/response (format "Clojure %s - served from %s"
                               (clojure-version)
                               (route/url-for ::about-page))))
-(defn workout-exercise-for-json
-  "Takes a query result for a workout_exercise and shapes it for json"
-  [workout_exercise]
-  {:workout (nth workout_exercise 0)
-   :muscleGroup (nth workout_exercise 1)
-   :exercise (nth workout_exercise 2)})
 
 (defn home-page
   "The Home Page"
   [request]
   (ring-resp/response
-   (selmer-parser/render-file "home.html" {:workout_exercises (str (workout_exercises))})))
-
-(defn workout-exercise
-  "REST end-point for workout-exercise"
-  [request]
-  (ring-resp/response
-   (json/write-str (map workout-exercise-for-json (seq (workout_exercises))))))
+   (selmer-parser/render-file
+    "home.html"
+    {:workout_exercises (str (workout_exercises))})))
 
 (defroutes routes
         [[["/" {:get home-page}
            ;; Set default interceptors for /about and any other paths under /
            ^:interceptors [(body-params/body-params) bootstrap/html-body]
            ["/about" {:get about-page}]
-           ["/workout-exercise" {:get workout-exercise}]]]])
+           ["/workout-exercise"
+            {:get make-my-workout.workout-exercise/workout-exercise}]]]])
 
 ;; Consumed by make-my-workout.server/create-server
 ;; See bootstrap/default-interceptors for additional options you can configure
