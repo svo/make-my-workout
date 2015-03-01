@@ -1,6 +1,9 @@
-target/
-tmp/
-logs/
 .lein-failures
 .lein-repl-history
+.nrepl-port
 deps.dot
+.lein-plugins/
+tmp/
+lib/
+logs/
+target/
